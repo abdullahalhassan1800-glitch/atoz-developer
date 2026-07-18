@@ -12,12 +12,13 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 
 const NotFound = () => (
-  <div className="min-h-[60vh] flex items-center justify-center pt-16">
+  <div className="min-h-[60vh] flex items-center justify-center pt-20 bg-white">
     <div className="text-center">
-      <h1 className="text-6xl font-extrabold text-teal-600 mb-3">404</h1>
-      <h2 className="text-xl font-bold text-gray-900 mb-2">Page Not Found</h2>
-      <p className="text-sm text-gray-400 mb-6">The page you're looking for doesn't exist.</p>
-      <Link to="/" className="inline-flex px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors shadow-sm">
+      <span className="text-6xl font-light text-gold" style={{ fontFamily: "'Playfair Display', serif" }}>404</span>
+      <div className="w-8 h-px bg-gold/30 mx-auto my-6" />
+      <h2 className="text-xl font-normal text-charcoal mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Page Not Found</h2>
+      <p className="text-sm font-light text-black/40 mb-8">The page you're looking for doesn't exist.</p>
+      <Link to="/" className="inline-flex px-8 py-3 bg-gold text-charcoal text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-300">
         Go Home
       </Link>
     </div>

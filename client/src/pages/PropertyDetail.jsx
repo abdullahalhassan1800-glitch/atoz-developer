@@ -31,49 +31,52 @@ export default function PropertyDetail() {
   };
 
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center pt-16">
-      <div className="w-10 h-10 border-[3px] border-teal-600 border-t-transparent rounded-full animate-spin" />
+    <div className="min-h-screen flex items-center justify-center bg-white pt-20">
+      <div className="w-8 h-px bg-gold animate-pulse" style={{ width: '40px' }} />
     </div>
   );
 
   if (!property) return (
-    <div className="min-h-screen flex items-center justify-center pt-16">
+    <div className="min-h-screen flex items-center justify-center bg-white pt-20">
       <div className="text-center">
-        <h2 className="text-xl font-bold text-gray-900 mb-3">Property Not Found</h2>
-        <Link to="/properties" className="text-sm text-teal-600 hover:underline">Back to Properties</Link>
+        <h2 className="text-2xl font-normal text-charcoal mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Property Not Found</h2>
+        <Link to="/properties" className="text-xs font-light text-gold hover:text-gold-dark tracking-[0.15em] uppercase transition-colors">Back to Properties</Link>
       </div>
     </div>
   );
 
   const images = property.images?.length > 0 ? property.images : ['https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800'];
-
-  const input = "w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700 placeholder:text-gray-400 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all";
+  const input = "w-full px-4 py-3 bg-cream border border-black/10 text-sm font-light text-black/70 placeholder:text-black/30 outline-none focus:border-gold transition-all duration-300";
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16 pb-14">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <Link to="/properties" className="inline-flex items-center gap-2 text-sm text-teal-600 hover:text-teal-700 font-medium mb-5">
-          <FaArrowLeft className="text-xs" /> Back to Properties
+    <div className="min-h-screen bg-white pt-20 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <Link to="/properties" className="inline-flex items-center gap-2 text-xs font-light text-gold hover:text-gold-dark tracking-[0.15em] uppercase transition-colors mb-8">
+          <FaArrowLeft className="text-[10px]" /> Back to Properties
         </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-5">
-            <div className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm">
-              <div className="h-64 sm:h-80 md:h-96 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-6">
+            <div className="overflow-hidden border border-black/5">
+              <div className="h-72 sm:h-96 md:h-[28rem] relative">
                 <img src={images[img]} alt={property.title} className="w-full h-full object-cover" />
-                <div className="absolute top-3 left-3 flex gap-1.5">
-                  <span className={`px-2.5 py-1 text-xs font-semibold rounded-md ${property.type === 'sale' ? 'bg-teal-600 text-white' : 'bg-amber-500 text-white'}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className={`px-3 py-1 text-[10px] font-medium tracking-[0.15em] uppercase ${property.type === 'sale' ? 'bg-gold text-charcoal' : 'bg-charcoal text-white'}`}>
                     For {property.type === 'sale' ? 'Sale' : 'Rent'}
                   </span>
-                  <span className={`px-2.5 py-1 text-xs font-semibold rounded-md ${property.status === 'available' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
+                  <span className={`px-3 py-1 text-[10px] font-medium tracking-[0.15em] uppercase ${property.status === 'available' ? 'bg-charcoal text-gold' : 'bg-charcoal text-white/60'}`}>
                     {property.status?.charAt(0).toUpperCase() + property.status?.slice(1)}
                   </span>
                 </div>
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-3xl font-light text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{fmt(property.price)}</span>
+                </div>
               </div>
               {images.length > 1 && (
-                <div className="flex gap-1.5 p-2 overflow-x-auto">
+                <div className="flex gap-2 p-3 bg-cream overflow-x-auto">
                   {images.map((i2, i) => (
-                    <button key={i} onClick={() => setImg(i)} className={`flex-shrink-0 w-18 h-14 rounded-lg overflow-hidden border-2 transition ${img === i ? 'border-teal-600' : 'border-transparent hover:border-gray-200'}`}>
+                    <button key={i} onClick={() => setImg(i)} className={`flex-shrink-0 w-20 h-14 overflow-hidden border-2 transition-all duration-300 ${img === i ? 'border-gold' : 'border-transparent hover:border-black/10'}`}>
                       <img src={i2} alt="" className="w-full h-full object-cover" />
                     </button>
                   ))}
@@ -81,42 +84,42 @@ export default function PropertyDetail() {
               )}
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
-              <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+            <div className="p-8 border border-black/5">
+              <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
                 <div>
-                  <h1 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">{property.title}</h1>
-                  <p className="text-sm text-gray-400 flex items-center gap-1 mt-1.5">
-                    <FaMapMarkerAlt className="text-teal-500 flex-shrink-0" /> {property.address}, {property.city}, {property.state}
+                  <h1 className="text-2xl sm:text-3xl font-normal text-charcoal leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>{property.title}</h1>
+                  <p className="text-sm font-light text-black/40 flex items-center gap-1.5 mt-2">
+                    <FaMapMarkerAlt className="text-gold" /> {property.address}, {property.city}, {property.state}
                   </p>
                 </div>
-                <span className="text-xl sm:text-2xl font-bold text-teal-600 whitespace-nowrap">{fmt(property.price)}</span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 bg-gray-50 rounded-lg mb-5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-cream mb-6">
                 {[
                   { icon: FaBed, value: property.beds, label: 'Beds', hide: property.beds === 0 },
                   { icon: FaBath, value: property.baths, label: 'Baths', hide: property.baths === 0 },
                   { icon: FaRulerCombined, value: property.area, label: 'Sq Ft' },
                   { icon: FaBuilding, value: property.propertyType, label: 'Type', cap: true },
                 ].filter((x) => !x.hide).map((item, i) => (
-                  <div key={i} className="text-center p-2">
-                    <item.icon className="text-teal-600 text-sm mx-auto mb-1" />
-                    <span className="text-sm font-semibold text-gray-900 block capitalize">{item.value}</span>
-                    <p className="text-[11px] text-gray-400">{item.label}</p>
+                  <div key={i} className="text-center">
+                    <item.icon className="text-gold text-sm mx-auto mb-2" />
+                    <span className="text-sm font-light text-charcoal block capitalize">{item.value}</span>
+                    <p className="text-[10px] font-light text-black/30 tracking-[0.15em] uppercase mt-0.5">{item.label}</p>
                   </div>
                 ))}
               </div>
 
-              <h3 className="font-bold text-gray-900 mb-2">Description</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{property.description}</p>
+              <div className="w-8 h-px bg-gold/30 mb-6" />
+              <h3 className="font-normal text-charcoal mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Description</h3>
+              <p className="text-sm font-light text-black/50 leading-relaxed">{property.description}</p>
 
               {property.features?.length > 0 && (
-                <div className="mt-5">
-                  <h3 className="font-bold text-gray-900 mb-2">Features</h3>
+                <div className="mt-8">
+                  <h3 className="font-normal text-charcoal mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Features</h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {property.features.map((f, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm text-gray-600 p-2 bg-gray-50 rounded-lg">
-                        <FaCheck className="text-teal-500 text-[10px] flex-shrink-0" /> {f}
+                      <div key={i} className="flex items-center gap-2 text-sm font-light text-black/50 p-3 bg-cream">
+                        <FaCheck className="text-gold text-[10px] flex-shrink-0" /> {f}
                       </div>
                     ))}
                   </div>
@@ -124,13 +127,13 @@ export default function PropertyDetail() {
               )}
 
               {property.nearbyPlaces?.length > 0 && (
-                <div className="mt-5">
-                  <h3 className="font-bold text-gray-900 mb-2">Nearby Places</h3>
+                <div className="mt-8">
+                  <h3 className="font-normal text-charcoal mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Nearby Places</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {property.nearbyPlaces.map((p, i) => (
-                      <div key={i} className="flex items-center justify-between p-2.5 bg-gray-50 rounded-lg">
-                        <span className="text-sm text-gray-700">{p.name}</span>
-                        <span className="text-[11px] text-gray-400 bg-white px-2 py-0.5 rounded-md">{p.distance}</span>
+                      <div key={i} className="flex items-center justify-between p-3 bg-cream">
+                        <span className="text-sm font-light text-black/60">{p.name}</span>
+                        <span className="text-[10px] font-light text-gold tracking-wider">{p.distance}</span>
                       </div>
                     ))}
                   </div>
@@ -139,49 +142,47 @@ export default function PropertyDetail() {
             </div>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             {property.agent && (
-              <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-3">Listed By</h3>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-sm">
-                    {property.agent.name?.charAt(0)}
+              <div className="p-6 border border-black/5">
+                <h3 className="font-normal text-charcoal mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>Listed By</h3>
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-14 h-14 bg-charcoal flex items-center justify-center">
+                    <span className="text-gold text-lg font-normal" style={{ fontFamily: "'Playfair Display', serif" }}>{property.agent.name?.charAt(0)}</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 text-sm">{property.agent.name}</h4>
-                    <p className="text-xs text-gray-400">Property Agent</p>
+                    <h4 className="font-normal text-charcoal text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>{property.agent.name}</h4>
+                    <p className="text-[10px] font-light text-black/30 tracking-[0.15em] uppercase mt-0.5">Property Agent</p>
                   </div>
                 </div>
                 <div className="space-y-1">
                   {property.agent.phone && (
-                    <a href={`tel:${property.agent.phone}`} className="flex items-center gap-2 text-sm text-gray-500 hover:text-teal-600 p-2 rounded-lg hover:bg-gray-50 transition-colors">
-                      <FaPhone className="text-teal-500 text-xs" /> {property.agent.phone}
+                    <a href={`tel:${property.agent.phone}`} className="flex items-center gap-2.5 text-sm font-light text-black/50 hover:text-gold p-3 hover:bg-cream transition-all duration-300">
+                      <FaPhone className="text-gold text-xs" /> {property.agent.phone}
                     </a>
                   )}
-                  <a href={`mailto:${property.agent.email}`} className="flex items-center gap-2 text-sm text-gray-500 hover:text-teal-600 p-2 rounded-lg hover:bg-gray-50 transition-colors">
-                    <FaEnvelope className="text-teal-500 text-xs" /> {property.agent.email}
+                  <a href={`mailto:${property.agent.email}`} className="flex items-center gap-2.5 text-sm font-light text-black/50 hover:text-gold p-3 hover:bg-cream transition-all duration-300">
+                    <FaEnvelope className="text-gold text-xs" /> {property.agent.email}
                   </a>
                 </div>
               </div>
             )}
 
-            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
-              <h3 className="font-bold text-gray-900 mb-3">Send Inquiry</h3>
+            <div className="p-6 border border-black/5">
+              <h3 className="font-normal text-charcoal mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>Send Inquiry</h3>
               {sent ? (
-                <div className="text-center py-6">
-                  <div className="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <FaCheck className="text-teal-600 text-xl" />
-                  </div>
-                  <p className="text-sm font-semibold text-gray-900">Message Sent!</p>
-                  <p className="text-xs text-gray-400 mt-1">We'll get back to you soon</p>
+                <div className="text-center py-8">
+                  <div className="w-12 h-px bg-gold mx-auto mb-4" />
+                  <p className="text-sm font-normal text-charcoal mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Message Sent!</p>
+                  <p className="text-xs font-light text-black/30">We'll get back to you soon</p>
                 </div>
               ) : (
-                <form onSubmit={send} className="space-y-2.5">
+                <form onSubmit={send} className="space-y-3">
                   <input type="text" placeholder="Your Name" required value={inquiry.name} onChange={(e) => setInquiry({ ...inquiry, name: e.target.value })} className={input} />
                   <input type="email" placeholder="Email" required value={inquiry.email} onChange={(e) => setInquiry({ ...inquiry, email: e.target.value })} className={input} />
                   <input type="tel" placeholder="Phone" value={inquiry.phone} onChange={(e) => setInquiry({ ...inquiry, phone: e.target.value })} className={input} />
                   <textarea placeholder="Message" rows={3} required value={inquiry.message} onChange={(e) => setInquiry({ ...inquiry, message: e.target.value })} className={`${input} resize-none`} />
-                  <button type="submit" className="w-full py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors shadow-sm">
+                  <button type="submit" className="w-full py-3 bg-gold text-charcoal text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-300">
                     Send Message
                   </button>
                 </form>

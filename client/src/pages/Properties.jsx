@@ -47,39 +47,44 @@ export default function Properties() {
     fetchProperties(1);
   };
 
-  const sel = "px-3.5 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all";
+  const sel = "py-3 px-4 bg-white border border-black/10 text-sm font-light text-black/60 outline-none focus:border-gold transition-all duration-300 appearance-none cursor-pointer";
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="text-center mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Find Your Perfect Property</h1>
-          <p className="text-sm text-gray-500 mt-2">{pagination.total} properties available</p>
+    <div className="min-h-screen pt-20 bg-white">
+      {/* Header */}
+      <section className="bg-charcoal py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-gold text-xs font-light tracking-[0.3em] uppercase">Portfolio</span>
+          <h1 className="text-3xl sm:text-4xl font-normal text-white mt-3 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Find Your Perfect Property</h1>
+          <p className="text-sm font-light text-white/40">{pagination.total} properties available</p>
         </div>
+      </section>
 
-        <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Search */}
+        <div className="bg-cream p-6 sm:p-8 mb-12">
           <form onSubmit={search}>
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
               <div className="sm:col-span-2 relative">
-                <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
-                <input type="text" name="search" value={filters.search} onChange={set} placeholder="Search properties..." className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" />
+                <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-black/30 text-xs" />
+                <input type="text" name="search" value={filters.search} onChange={set} placeholder="Search properties..." className="w-full pl-10 pr-4 py-3 bg-white border border-black/10 text-sm font-light outline-none focus:border-gold transition-all duration-300" />
               </div>
               <select name="type" value={filters.type} onChange={set} className={sel}>
                 <option value="">All Types</option>
                 <option value="sale">For Sale</option>
                 <option value="rent">For Rent</option>
               </select>
-              <button type="submit" className="py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors shadow-sm flex items-center justify-center gap-2">
-                <FaSearch className="text-xs" /> Search
+              <button type="submit" className="py-3 bg-gold text-charcoal text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-300 flex items-center justify-center gap-2">
+                <FaSearch className="text-[10px]" /> Search
               </button>
             </div>
 
-            <button type="button" onClick={() => setShowFilters(!showFilters)} className="mt-3 text-xs text-teal-600 font-medium flex items-center gap-1 hover:text-teal-700">
+            <button type="button" onClick={() => setShowFilters(!showFilters)} className="mt-4 text-xs font-light text-gold flex items-center gap-2 hover:text-gold-dark transition-colors tracking-wider uppercase">
               <FaSlidersH /> {showFilters ? 'Hide' : 'Show'} Filters
             </button>
 
             {showFilters && (
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 mt-3 pt-3 border-t border-gray-100">
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-4 pt-4 border-t border-black/5">
                 <select name="propertyType" value={filters.propertyType} onChange={set} className={sel}>
                   <option value="">Property Type</option>
                   <option value="house">House</option>
@@ -113,31 +118,33 @@ export default function Properties() {
           </form>
         </div>
 
+        {/* Results */}
         {loading ? (
-          <div className="text-center py-20">
-            <div className="w-10 h-10 border-[3px] border-teal-600 border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-sm text-gray-400 mt-4">Loading...</p>
+          <div className="text-center py-24">
+            <div className="w-8 h-px bg-gold animate-pulse mx-auto mb-4" style={{ width: '40px' }} />
+            <p className="text-xs font-light text-black/30 tracking-[0.2em] uppercase">Loading...</p>
           </div>
         ) : properties.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-lg font-semibold text-gray-900">No properties found</p>
-            <p className="text-sm text-gray-400 mt-1">Try adjusting your filters</p>
+          <div className="text-center py-24">
+            <div className="w-16 h-px bg-gold/30 mx-auto mb-6" />
+            <p className="text-xl font-normal text-charcoal mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>No properties found</p>
+            <p className="text-sm font-light text-black/30">Try adjusting your search criteria</p>
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {properties.map((p) => <PropertyCard key={p._id} property={p} />)}
             </div>
             {pagination.totalPages > 1 && (
-              <div className="flex justify-center gap-1.5 mt-10">
+              <div className="flex justify-center gap-2 mt-12">
                 {Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map((page) => (
                   <button
                     key={page}
                     onClick={() => fetchProperties(page)}
-                    className={`w-9 h-9 rounded-lg text-sm font-medium transition-colors ${
+                    className={`w-10 h-10 text-xs font-light tracking-wider transition-all duration-300 ${
                       pagination.currentPage === page
-                        ? 'bg-teal-600 text-white'
-                        : 'bg-white text-gray-500 border border-gray-200 hover:border-teal-300'
+                        ? 'bg-gold text-charcoal'
+                        : 'bg-white text-black/40 border border-black/10 hover:border-gold/40 hover:text-gold'
                     }`}
                   >
                     {page}

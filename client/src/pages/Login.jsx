@@ -26,50 +26,53 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center pt-16 pb-14 px-4">
-      <div className="w-full max-w-sm">
-        <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-          <div className="text-center mb-6">
-            <div className="w-11 h-11 bg-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <span className="text-white font-bold text-sm">AZ</span>
-            </div>
-            <h2 className="text-xl font-bold text-gray-900">Welcome Back</h2>
-            <p className="text-sm text-gray-400 mt-1">Sign in to your account</p>
+    <div className="min-h-screen bg-cream flex items-center justify-center pt-20 pb-14 px-4">
+      <div className="w-full max-w-md">
+        <div className="text-center mb-8">
+          <div className="w-12 h-12 border border-gold/60 flex items-center justify-center mx-auto mb-4">
+            <span className="text-gold font-bold text-xs tracking-[0.2em]">AZ</span>
           </div>
+          <h1 className="text-2xl font-normal text-charcoal" style={{ fontFamily: "'Playfair Display', serif" }}>Welcome Back</h1>
+          <p className="text-sm font-light text-black/40 mt-2">Sign in to your account</p>
+        </div>
 
+        <div className="bg-white p-8 border border-black/5">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-600 text-sm p-3 rounded-lg mb-4">{error}</div>
+            <div className="bg-red-50 border border-red-200 text-red-600 text-sm p-3 mb-6 font-light">{error}</div>
           )}
 
-          <form onSubmit={submit} className="space-y-3">
+          <form onSubmit={submit} className="space-y-5">
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1 block">Email</label>
+              <label className="text-[10px] font-light text-black/40 tracking-[0.2em] uppercase mb-2 block">Email</label>
               <div className="relative">
-                <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
-                <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Enter your email" className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" />
+                <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-black/20 text-xs" />
+                <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Enter your email" className="w-full pl-10 pr-4 py-3 bg-cream border border-black/10 text-sm font-light outline-none focus:border-gold transition-all duration-300" />
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1 block">Password</label>
+              <label className="text-[10px] font-light text-black/40 tracking-[0.2em] uppercase mb-2 block">Password</label>
               <div className="relative">
-                <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
-                <input type={showPass ? 'text' : 'password'} required value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Enter password" className="w-full pl-9 pr-10 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" />
-                <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                  {showPass ? <FaEyeSlash className="text-sm" /> : <FaEye className="text-sm" />}
+                <FaLock className="absolute left-4 top-1/2 -translate-y-1/2 text-black/20 text-xs" />
+                <input type={showPass ? 'text' : 'password'} required value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Enter password" className="w-full pl-10 pr-10 py-3 bg-cream border border-black/10 text-sm font-light outline-none focus:border-gold transition-all duration-300" />
+                <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-4 top-1/2 -translate-y-1/2 text-black/20 hover:text-gold transition-colors">
+                  {showPass ? <FaEyeSlash className="text-xs" /> : <FaEye className="text-xs" />}
                 </button>
               </div>
             </div>
 
-            <button type="submit" disabled={loading} className="w-full py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors shadow-sm disabled:opacity-50">
+            <button type="submit" disabled={loading} className="w-full py-3.5 bg-gold text-charcoal text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-300 disabled:opacity-50">
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-400 mt-5">
-            Don't have an account?{' '}
-            <Link to="/register" className="text-teal-600 font-semibold hover:underline">Sign up</Link>
-          </p>
+          <div className="text-center mt-8">
+            <div className="w-8 h-px bg-gold/30 mx-auto mb-6" />
+            <p className="text-sm font-light text-black/40">
+              Don't have an account?{' '}
+              <Link to="/register" className="text-gold font-light hover:text-gold-dark transition-colors">Sign up</Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>

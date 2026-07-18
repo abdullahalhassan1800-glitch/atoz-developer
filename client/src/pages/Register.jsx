@@ -25,80 +25,83 @@ export default function Register() {
     }
   };
 
-  const iconInput = "w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all";
+  const iconInput = "w-full pl-10 pr-4 py-3 bg-cream border border-black/10 text-sm font-light outline-none focus:border-gold transition-all duration-300";
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center pt-16 pb-14 px-4">
-      <div className="w-full max-w-sm">
-        <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-          <div className="text-center mb-6">
-            <div className="w-11 h-11 bg-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <span className="text-white font-bold text-sm">AZ</span>
-            </div>
-            <h2 className="text-xl font-bold text-gray-900">Create Account</h2>
-            <p className="text-sm text-gray-400 mt-1">Join A TO Z Developer</p>
+    <div className="min-h-screen bg-cream flex items-center justify-center pt-20 pb-14 px-4">
+      <div className="w-full max-w-md">
+        <div className="text-center mb-8">
+          <div className="w-12 h-12 border border-gold/60 flex items-center justify-center mx-auto mb-4">
+            <span className="text-gold font-bold text-xs tracking-[0.2em]">AZ</span>
           </div>
+          <h1 className="text-2xl font-normal text-charcoal" style={{ fontFamily: "'Playfair Display', serif" }}>Create Account</h1>
+          <p className="text-sm font-light text-black/40 mt-2">Join A TO Z Developer</p>
+        </div>
 
+        <div className="bg-white p-8 border border-black/5">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-600 text-sm p-3 rounded-lg mb-4">{error}</div>
+            <div className="bg-red-50 border border-red-200 text-red-600 text-sm p-3 mb-6 font-light">{error}</div>
           )}
 
-          <form onSubmit={submit} className="space-y-3">
+          <form onSubmit={submit} className="space-y-5">
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1 block">Full Name</label>
+              <label className="text-[10px] font-light text-black/40 tracking-[0.2em] uppercase mb-2 block">Full Name</label>
               <div className="relative">
-                <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+                <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-black/20 text-xs" />
                 <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Enter your name" className={iconInput} />
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1 block">Email</label>
+              <label className="text-[10px] font-light text-black/40 tracking-[0.2em] uppercase mb-2 block">Email</label>
               <div className="relative">
-                <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+                <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-black/20 text-xs" />
                 <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Enter your email" className={iconInput} />
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1 block">Phone</label>
+              <label className="text-[10px] font-light text-black/40 tracking-[0.2em] uppercase mb-2 block">Phone</label>
               <div className="relative">
-                <FaPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+                <FaPhone className="absolute left-4 top-1/2 -translate-y-1/2 text-black/20 text-xs" />
                 <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Phone number" className={iconInput} />
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1 block">Password</label>
+              <label className="text-[10px] font-light text-black/40 tracking-[0.2em] uppercase mb-2 block">Password</label>
               <div className="relative">
-                <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
-                <input type={showPass ? 'text' : 'password'} required minLength={6} value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Min 6 characters" className="w-full pl-9 pr-10 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all" />
-                <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                  {showPass ? <FaEyeSlash className="text-sm" /> : <FaEye className="text-sm" />}
+                <FaLock className="absolute left-4 top-1/2 -translate-y-1/2 text-black/20 text-xs" />
+                <input type={showPass ? 'text' : 'password'} required minLength={6} value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Min 6 characters" className="w-full pl-10 pr-10 py-3 bg-cream border border-black/10 text-sm font-light outline-none focus:border-gold transition-all duration-300" />
+                <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-4 top-1/2 -translate-y-1/2 text-black/20 hover:text-gold transition-colors">
+                  {showPass ? <FaEyeSlash className="text-xs" /> : <FaEye className="text-xs" />}
                 </button>
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1 block">I am a</label>
-              <div className="grid grid-cols-2 gap-2">
+              <label className="text-[10px] font-light text-black/40 tracking-[0.2em] uppercase mb-2 block">I am a</label>
+              <div className="grid grid-cols-2 gap-3">
                 {[{ v: 'buyer', l: 'Buyer / Renter' }, { v: 'agent', l: 'Property Agent' }].map((o) => (
-                  <button type="button" key={o.v} onClick={() => setForm({ ...form, role: o.v })} className={`py-2.5 rounded-lg text-sm font-medium border transition-colors ${form.role === o.v ? 'border-teal-600 bg-teal-50 text-teal-700' : 'border-gray-200 text-gray-500 hover:border-gray-300'}`}>
+                  <button type="button" key={o.v} onClick={() => setForm({ ...form, role: o.v })} className={`py-3 text-xs font-light tracking-[0.1em] uppercase border transition-all duration-300 ${form.role === o.v ? 'border-gold bg-gold/10 text-gold' : 'border-black/10 text-black/40 hover:border-gold/40'}`}>
                     {o.l}
                   </button>
                 ))}
               </div>
             </div>
 
-            <button type="submit" disabled={loading} className="w-full py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors shadow-sm disabled:opacity-50">
+            <button type="submit" disabled={loading} className="w-full py-3.5 bg-gold text-charcoal text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-300 disabled:opacity-50">
               {loading ? 'Creating...' : 'Create Account'}
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-400 mt-5">
-            Already have an account?{' '}
-            <Link to="/login" className="text-teal-600 font-semibold hover:underline">Sign in</Link>
-          </p>
+          <div className="text-center mt-8">
+            <div className="w-8 h-px bg-gold/30 mx-auto mb-6" />
+            <p className="text-sm font-light text-black/40">
+              Already have an account?{' '}
+              <Link to="/login" className="text-gold font-light hover:text-gold-dark transition-colors">Sign in</Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
