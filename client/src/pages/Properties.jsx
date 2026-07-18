@@ -65,19 +65,19 @@ const Properties = () => {
           <form onSubmit={handleSearch}>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="md:col-span-2">
-                <input type="text" name="search" value={filters.search} onChange={handleChange} placeholder="Search properties..." className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none" />
+                <input type="text" name="search" value={filters.search} onChange={handleChange} placeholder="Search properties..." className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 outline-none" />
               </div>
-              <select name="type" value={filters.type} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+              <select name="type" value={filters.type} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 outline-none">
                 <option value="">All Types</option>
                 <option value="sale">For Sale</option>
                 <option value="rent">For Rent</option>
               </select>
-              <button type="submit" className="py-3 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition flex items-center justify-center gap-2">
+              <button type="submit" className="py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition flex items-center justify-center gap-2">
                 <FaSearch /> Search
               </button>
             </div>
 
-            <button type="button" onClick={() => setShowFilters(!showFilters)} className="mt-4 text-sm text-blue-600 flex items-center gap-1 hover:text-blue-800">
+            <button type="button" onClick={() => setShowFilters(!showFilters)} className="mt-4 text-sm text-teal-600 flex items-center gap-1 hover:text-teal-800">
               <FaSlidersH /> {showFilters ? 'Hide' : 'Show'} Advanced Filters
             </button>
 
@@ -119,7 +119,7 @@ const Properties = () => {
         {/* Properties Grid */}
         {loading ? (
           <div className="text-center py-20">
-            <div className="w-12 h-12 border-4 border-blue-700 border-t-transparent rounded-full animate-spin mx-auto"></div>
+            <div className="w-12 h-12 border-4 border-teal-700 border-t-transparent rounded-full animate-spin mx-auto"></div>
             <p className="text-gray-500 mt-4">Loading properties...</p>
           </div>
         ) : properties.length === 0 ? (
@@ -144,8 +144,8 @@ const Properties = () => {
                     onClick={() => fetchProperties(page)}
                     className={`w-10 h-10 rounded-lg text-sm font-medium transition ${
                       pagination.currentPage === page
-                        ? 'bg-blue-700 text-white'
-                        : 'bg-white text-gray-600 hover:bg-blue-50 border border-gray-200'
+                        ? 'bg-teal-700 text-white'
+                        : 'bg-white text-gray-600 hover:bg-teal-50 border border-gray-200'
                     }`}
                   >
                     {page}

@@ -18,7 +18,7 @@ const PropertyCard = ({ property }) => {
         />
         <div className="absolute top-3 left-3 flex gap-2">
           <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-            property.type === 'sale' ? 'bg-blue-700 text-white' : 'bg-amber-500 text-white'
+            property.type === 'sale' ? 'bg-teal-700 text-white' : 'bg-amber-500 text-white'
           }`}>
             For {property.type === 'sale' ? 'Sale' : 'Rent'}
           </span>
@@ -34,21 +34,21 @@ const PropertyCard = ({ property }) => {
       </div>
 
       <div className="p-5">
-        <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition mb-1 line-clamp-1">
+        <h3 className="text-lg font-bold text-gray-900 group-hover:text-teal-700 transition mb-1 line-clamp-1">
           {property.title}
         </h3>
         <p className="text-sm text-gray-500 flex items-center gap-1 mb-3">
-          <FaMapMarkerAlt className="text-blue-500" /> {property.city}, {property.state}
+          <FaMapMarkerAlt className="text-teal-500" /> {property.city}, {property.state}
         </p>
 
         <div className="flex items-center gap-4 text-sm text-gray-600 mb-4 pb-4 border-b border-gray-100">
-          <span className="flex items-center gap-1"><FaBed className="text-blue-500" /> {property.beds} Beds</span>
-          <span className="flex items-center gap-1"><FaBath className="text-blue-500" /> {property.baths} Baths</span>
-          <span className="flex items-center gap-1"><FaRulerCombined className="text-blue-500" /> {property.area} sqft</span>
+          <span className="flex items-center gap-1"><FaBed className="text-teal-500" /> {property.beds} Beds</span>
+          <span className="flex items-center gap-1"><FaBath className="text-teal-500" /> {property.baths} Baths</span>
+          <span className="flex items-center gap-1"><FaRulerCombined className="text-teal-500" /> {property.area} sqft</span>
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xl font-bold text-blue-700">{formatPrice(property.price)}</span>
+          <span className="text-xl font-bold text-teal-700">{formatPrice(property.price)}</span>
           {property.type === 'rent' && <span className="text-xs text-gray-500">/month</span>}
         </div>
       </div>

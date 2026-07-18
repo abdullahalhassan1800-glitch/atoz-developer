@@ -30,7 +30,7 @@ const Login = () => {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
-            <div className="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 bg-gradient-to-br from-teal-700 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
               <span className="text-white font-bold text-xl">AZ</span>
             </div>
             <h2 className="text-2xl font-bold text-gray-900">Welcome Back</h2>
@@ -48,7 +48,7 @@ const Login = () => {
               <label className="text-xs font-medium text-gray-500 mb-1 block">Email</label>
               <div className="relative">
                 <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Enter your email" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Enter your email" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
               </div>
             </div>
 
@@ -56,21 +56,21 @@ const Login = () => {
               <label className="text-xs font-medium text-gray-500 mb-1 block">Password</label>
               <div className="relative">
                 <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input type={showPass ? 'text' : 'password'} required value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Enter password" className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type={showPass ? 'text' : 'password'} required value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Enter password" className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
                 <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
                   {showPass ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
             </div>
 
-            <button type="submit" disabled={loading} className="w-full py-3 bg-gradient-to-r from-blue-700 to-blue-500 text-white font-semibold rounded-xl hover:from-blue-800 hover:to-blue-600 transition shadow-lg disabled:opacity-50">
+            <button type="submit" disabled={loading} className="w-full py-3 bg-gradient-to-r from-teal-700 to-teal-500 text-white font-semibold rounded-xl hover:from-teal-800 hover:to-teal-600 transition shadow-lg disabled:opacity-50">
               {loading ? 'Logging in...' : 'Login'}
             </button>
           </form>
 
           <p className="text-center text-sm text-gray-500 mt-6">
             Don't have an account?{' '}
-            <Link to="/register" className="text-blue-700 font-semibold hover:underline">Register</Link>
+            <Link to="/register" className="text-teal-700 font-semibold hover:underline">Register</Link>
           </p>
         </div>
       </div>

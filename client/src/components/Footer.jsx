@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-teal-400 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">AZ</span>
               </div>
               <div>
@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3 mt-4">
               {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition">
+                <a key={i} href="#" className="w-9 h-9 bg-gray-800 hover:bg-teal-600 rounded-full flex items-center justify-center transition">
                   <Icon size={14} />
                 </a>
               ))}

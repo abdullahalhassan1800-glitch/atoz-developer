@@ -23,7 +23,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
-      <section className="bg-gradient-to-br from-blue-900 to-gray-900 py-20">
+      <section className="bg-gradient-to-br from-teal-900 to-gray-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-amber-400 font-semibold text-sm uppercase tracking-wider">Get in Touch</span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-3 mb-4">Contact Us</h1>
@@ -48,8 +48,8 @@ const Contact = () => {
                     { icon: FaClock, label: 'Hours', value: 'Mon - Sat: 9:00 AM - 7:00 PM' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <item.icon className="text-blue-700" />
+                      <div className="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <item.icon className="text-teal-700" />
                       </div>
                       <div>
                         <p className="text-xs text-gray-500 font-medium">{item.label}</p>
@@ -64,7 +64,7 @@ const Contact = () => {
                 <h3 className="text-sm font-bold text-gray-900 mb-3">Follow Us</h3>
                 <div className="flex gap-3">
                   {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map((Icon, i) => (
-                    <a key={i} href="#" className="w-10 h-10 bg-gray-100 hover:bg-blue-700 hover:text-white rounded-xl flex items-center justify-center text-gray-500 transition">
+                    <a key={i} href="#" className="w-10 h-10 bg-gray-100 hover:bg-teal-700 hover:text-white rounded-xl flex items-center justify-center text-gray-500 transition">
                       <Icon />
                     </a>
                   ))}
@@ -83,20 +83,20 @@ const Contact = () => {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
                     <p className="text-gray-500">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-                    <button onClick={() => setSent(false)} className="mt-4 text-blue-700 hover:underline text-sm">Send another message</button>
+                    <button onClick={() => setSent(false)} className="mt-4 text-teal-700 hover:underline text-sm">Send another message</button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <input type="text" placeholder="Your Name *" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
-                      <input type="email" placeholder="Email Address *" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                      <input type="text" placeholder="Your Name *" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
+                      <input type="email" placeholder="Email Address *" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <input type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
-                      <input type="text" placeholder="Subject *" required value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                      <input type="tel" placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
+                      <input type="text" placeholder="Subject *" required value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
                     </div>
-                    <textarea placeholder="Your Message *" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
-                    <button type="submit" disabled={loading} className="px-8 py-3 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition shadow-lg disabled:opacity-50">
+                    <textarea placeholder="Your Message *" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500 resize-none"></textarea>
+                    <button type="submit" disabled={loading} className="px-8 py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition shadow-lg disabled:opacity-50">
                       {loading ? 'Sending...' : 'Send Message'}
                     </button>
                   </form>

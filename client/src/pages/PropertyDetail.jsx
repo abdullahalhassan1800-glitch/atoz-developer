@@ -36,7 +36,7 @@ const PropertyDetail = () => {
 
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center pt-20">
-      <div className="w-12 h-12 border-4 border-blue-700 border-t-transparent rounded-full animate-spin"></div>
+      <div className="w-12 h-12 border-4 border-teal-700 border-t-transparent rounded-full animate-spin"></div>
     </div>
   );
 
@@ -44,7 +44,7 @@ const PropertyDetail = () => {
     <div className="min-h-screen flex items-center justify-center pt-20">
       <div className="text-center">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Property Not Found</h2>
-        <Link to="/properties" className="text-blue-700 hover:underline">Back to Properties</Link>
+        <Link to="/properties" className="text-teal-700 hover:underline">Back to Properties</Link>
       </div>
     </div>
   );
@@ -56,7 +56,7 @@ const PropertyDetail = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-20 md:pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Link to="/properties" className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-800 mb-6 font-medium text-sm">
+        <Link to="/properties" className="inline-flex items-center gap-2 text-teal-700 hover:text-teal-800 mb-6 font-medium text-sm">
           <FaArrowLeft /> Back to Properties
         </Link>
 
@@ -68,7 +68,7 @@ const PropertyDetail = () => {
               <div className="h-64 sm:h-80 md:h-96 relative">
                 <img src={images[activeImage]} alt={property.title} className="w-full h-full object-cover" />
                 <div className="absolute top-4 left-4 flex gap-2">
-                  <span className={`px-4 py-2 text-sm font-semibold rounded-full shadow-md ${property.type === 'sale' ? 'bg-blue-700 text-white' : 'bg-amber-500 text-white'}`}>
+                  <span className={`px-4 py-2 text-sm font-semibold rounded-full shadow-md ${property.type === 'sale' ? 'bg-teal-700 text-white' : 'bg-amber-500 text-white'}`}>
                     For {property.type === 'sale' ? 'Sale' : 'Rent'}
                   </span>
                   <span className={`px-4 py-2 text-sm font-semibold rounded-full capitalize shadow-md ${property.status === 'available' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
@@ -79,7 +79,7 @@ const PropertyDetail = () => {
               {images.length > 1 && (
                 <div className="flex gap-2 p-3 overflow-x-auto">
                   {images.map((img, i) => (
-                    <button key={i} onClick={() => setActiveImage(i)} className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition ${activeImage === i ? 'border-blue-700' : 'border-transparent hover:border-gray-300'}`}>
+                    <button key={i} onClick={() => setActiveImage(i)} className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition ${activeImage === i ? 'border-teal-700' : 'border-transparent hover:border-gray-300'}`}>
                       <img src={img} alt="" className="w-full h-full object-cover" />
                     </button>
                   ))}
@@ -92,10 +92,10 @@ const PropertyDetail = () => {
               <div className="mb-4">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <h1 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">{property.title}</h1>
-                  <span className="text-xl sm:text-2xl font-bold text-blue-700 whitespace-nowrap">{formatPrice(property.price)}</span>
+                  <span className="text-xl sm:text-2xl font-bold text-teal-700 whitespace-nowrap">{formatPrice(property.price)}</span>
                 </div>
                 <p className="text-gray-500 flex items-center gap-1 mt-2 text-sm">
-                  <FaMapMarkerAlt className="text-blue-500 flex-shrink-0" /> {property.address}, {property.city}, {property.state}
+                  <FaMapMarkerAlt className="text-teal-500 flex-shrink-0" /> {property.address}, {property.city}, {property.state}
                 </p>
               </div>
 
@@ -107,7 +107,7 @@ const PropertyDetail = () => {
                   { icon: FaBuilding, value: property.propertyType, label: 'Type', capitalize: true },
                 ].map((item, i) => (
                   <div key={i} className="text-center p-2">
-                    <item.icon className="text-blue-700 text-lg sm:text-xl mx-auto mb-1" />
+                    <item.icon className="text-teal-700 text-lg sm:text-xl mx-auto mb-1" />
                     <span className="text-sm font-semibold text-gray-900 block capitalize">{item.value}</span>
                     <p className="text-xs text-gray-500">{item.label}</p>
                   </div>
@@ -152,7 +152,7 @@ const PropertyDetail = () => {
               <div className="bg-white rounded-2xl p-6 shadow-md">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Listed By</h3>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-400 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
+                  <div className="w-14 h-14 bg-gradient-to-br from-teal-600 to-teal-400 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
                     {property.agent.name?.charAt(0)}
                   </div>
                   <div>
@@ -162,12 +162,12 @@ const PropertyDetail = () => {
                 </div>
                 <div className="space-y-2">
                   {property.agent.phone && (
-                    <a href={`tel:${property.agent.phone}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-700 p-2 rounded-lg hover:bg-blue-50 transition">
-                      <FaPhone className="text-blue-500" /> {property.agent.phone}
+                    <a href={`tel:${property.agent.phone}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-teal-700 p-2 rounded-lg hover:bg-teal-50 transition">
+                      <FaPhone className="text-teal-500" /> {property.agent.phone}
                     </a>
                   )}
-                  <a href={`mailto:${property.agent.email}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-700 p-2 rounded-lg hover:bg-blue-50 transition">
-                    <FaEnvelope className="text-blue-500" /> {property.agent.email}
+                  <a href={`mailto:${property.agent.email}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-teal-700 p-2 rounded-lg hover:bg-teal-50 transition">
+                    <FaEnvelope className="text-teal-500" /> {property.agent.email}
                   </a>
                 </div>
               </div>
@@ -185,11 +185,11 @@ const PropertyDetail = () => {
                 </div>
               ) : (
                 <form onSubmit={handleInquiry} className="space-y-3">
-                  <input type="text" placeholder="Your Name" required value={inquiry.name} onChange={(e) => setInquiry({ ...inquiry, name: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
-                  <input type="email" placeholder="Email" required value={inquiry.email} onChange={(e) => setInquiry({ ...inquiry, email: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
-                  <input type="tel" placeholder="Phone" value={inquiry.phone} onChange={(e) => setInquiry({ ...inquiry, phone: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
-                  <textarea placeholder="Message" rows={3} required value={inquiry.message} onChange={(e) => setInquiry({ ...inquiry, message: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
-                  <button type="submit" className="w-full py-3 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition shadow-md hover:shadow-lg">
+                  <input type="text" placeholder="Your Name" required value={inquiry.name} onChange={(e) => setInquiry({ ...inquiry, name: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
+                  <input type="email" placeholder="Email" required value={inquiry.email} onChange={(e) => setInquiry({ ...inquiry, email: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
+                  <input type="tel" placeholder="Phone" value={inquiry.phone} onChange={(e) => setInquiry({ ...inquiry, phone: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
+                  <textarea placeholder="Message" rows={3} required value={inquiry.message} onChange={(e) => setInquiry({ ...inquiry, message: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500 resize-none"></textarea>
+                  <button type="submit" className="w-full py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition shadow-md hover:shadow-lg">
                     Send Message
                   </button>
                 </form>

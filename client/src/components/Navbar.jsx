@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-700 to-blue-500 rounded-lg flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 bg-gradient-to-br from-teal-700 to-teal-500 rounded-lg flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-lg">AZ</span>
             </div>
             <div className="leading-none">
@@ -50,13 +50,13 @@ const Navbar = () => {
                 to={link.path}
                 className={`relative text-sm font-medium transition-colors py-1 ${
                   isActive(link.path)
-                    ? 'text-blue-700'
-                    : 'text-gray-600 hover:text-blue-700'
+                    ? 'text-teal-700'
+                    : 'text-gray-600 hover:text-teal-700'
                 }`}
               >
                 {link.name}
                 {isActive(link.path) && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-700 rounded-full" />
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-700 rounded-full" />
                 )}
               </Link>
             ))}
@@ -65,7 +65,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-2 lg:gap-3">
             {user ? (
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-sm">
+                <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center text-teal-700 font-bold text-sm">
                   {user.name?.charAt(0)}
                 </div>
                 <span className="text-sm text-gray-600 font-medium">{user.name}</span>
@@ -78,10 +78,10 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                <Link to="/login" className="px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50 rounded-lg transition">
+                <Link to="/login" className="px-4 py-2 text-sm font-medium text-teal-700 hover:bg-teal-50 rounded-lg transition">
                   Login
                 </Link>
-                <Link to="/register" className="px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-700 to-blue-500 rounded-lg hover:from-blue-800 hover:to-blue-600 transition shadow-md hover:shadow-lg">
+                <Link to="/register" className="px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-700 to-teal-500 rounded-lg hover:from-teal-800 hover:to-teal-600 transition shadow-md hover:shadow-lg">
                   Register
                 </Link>
               </>
@@ -103,7 +103,7 @@ const Navbar = () => {
               to={link.path}
               onClick={() => setIsOpen(false)}
               className={`block px-4 py-3 rounded-xl text-sm font-medium transition ${
-                isActive(link.path) ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50'
+                isActive(link.path) ? 'bg-teal-50 text-teal-700' : 'text-gray-600 hover:bg-gray-50'
               }`}
             >
               {link.name}
@@ -119,10 +119,10 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex gap-2 px-1 pb-2">
-              <Link to="/login" onClick={() => setIsOpen(false)} className="flex-1 text-center px-4 py-3 text-blue-700 font-medium rounded-xl hover:bg-blue-50 transition text-sm border border-blue-200">
+              <Link to="/login" onClick={() => setIsOpen(false)} className="flex-1 text-center px-4 py-3 text-teal-700 font-medium rounded-xl hover:bg-teal-50 transition text-sm border border-teal-200">
                 Login
               </Link>
-              <Link to="/register" onClick={() => setIsOpen(false)} className="flex-1 text-center px-4 py-3 text-white bg-blue-700 font-medium rounded-xl hover:bg-blue-800 transition text-sm">
+              <Link to="/register" onClick={() => setIsOpen(false)} className="flex-1 text-center px-4 py-3 text-white bg-teal-700 font-medium rounded-xl hover:bg-teal-800 transition text-sm">
                 Register
               </Link>
             </div>

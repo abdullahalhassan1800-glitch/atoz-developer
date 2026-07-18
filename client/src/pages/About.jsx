@@ -11,7 +11,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-gray-900 py-20">
+      <section className="bg-gradient-to-br from-teal-900 to-gray-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-amber-400 font-semibold text-sm uppercase tracking-wider">About Us</span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-3 mb-4">Our Story</h1>
@@ -24,9 +24,9 @@ const About = () => {
       {/* Mission Vision */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="bg-white p-8 rounded-2xl shadow-md border-l-4 border-blue-700">
-            <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
-              <FaBullseye className="text-blue-700 text-2xl" />
+          <div className="bg-white p-8 rounded-2xl shadow-md border-l-4 border-teal-700">
+            <div className="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center mb-4">
+              <FaBullseye className="text-teal-700 text-2xl" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">Our Mission</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -55,7 +55,7 @@ const About = () => {
             { icon: FaHeart, num: '5,000+', label: 'Properties Sold' },
           ].map((s, i) => (
             <div key={i}>
-              <s.icon className="text-blue-700 text-3xl mx-auto mb-3" />
+              <s.icon className="text-teal-700 text-3xl mx-auto mb-3" />
               <h3 className="text-3xl font-bold text-gray-900">{s.num}</h3>
               <p className="text-gray-500 mt-1">{s.label}</p>
             </div>
@@ -78,10 +78,10 @@ const About = () => {
                 </div>
                 <div className="p-5 text-center">
                   <h3 className="font-bold text-gray-900">{member.name}</h3>
-                  <p className="text-sm text-blue-700">{member.role}</p>
+                  <p className="text-sm text-teal-700">{member.role}</p>
                   <div className="flex justify-center gap-3 mt-3">
                     {[FaLinkedinIn, FaTwitter, FaEnvelope].map((Icon, j) => (
-                      <a key={j} href="#" className="w-8 h-8 bg-gray-100 hover:bg-blue-700 hover:text-white rounded-full flex items-center justify-center text-gray-500 transition text-xs">
+                      <a key={j} href="#" className="w-8 h-8 bg-gray-100 hover:bg-teal-700 hover:text-white rounded-full flex items-center justify-center text-gray-500 transition text-xs">
                         <Icon />
                       </a>
                     ))}

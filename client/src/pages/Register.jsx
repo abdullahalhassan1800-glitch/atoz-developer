@@ -30,7 +30,7 @@ const Register = () => {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
-            <div className="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 bg-gradient-to-br from-teal-700 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
               <span className="text-white font-bold text-xl">AZ</span>
             </div>
             <h2 className="text-2xl font-bold text-gray-900">Create Account</h2>
@@ -48,7 +48,7 @@ const Register = () => {
               <label className="text-xs font-medium text-gray-500 mb-1 block">Full Name</label>
               <div className="relative">
                 <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Enter your name" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Enter your name" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
               </div>
             </div>
 
@@ -56,7 +56,7 @@ const Register = () => {
               <label className="text-xs font-medium text-gray-500 mb-1 block">Email</label>
               <div className="relative">
                 <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Enter your email" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Enter your email" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
               </div>
             </div>
 
@@ -64,7 +64,7 @@ const Register = () => {
               <label className="text-xs font-medium text-gray-500 mb-1 block">Phone</label>
               <div className="relative">
                 <FaPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Enter phone number" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Enter phone number" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
               </div>
             </div>
 
@@ -72,7 +72,7 @@ const Register = () => {
               <label className="text-xs font-medium text-gray-500 mb-1 block">Password</label>
               <div className="relative">
                 <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input type={showPass ? 'text' : 'password'} required minLength={6} value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Create password (min 6 chars)" className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type={showPass ? 'text' : 'password'} required minLength={6} value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="Create password (min 6 chars)" className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
                 <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
                   {showPass ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -86,21 +86,21 @@ const Register = () => {
                   { value: 'buyer', label: 'Buyer / Renter' },
                   { value: 'agent', label: 'Property Agent' },
                 ].map((opt) => (
-                  <button type="button" key={opt.value} onClick={() => setForm({ ...form, role: opt.value })} className={`py-3 rounded-xl text-sm font-medium border-2 transition ${form.role === opt.value ? 'border-blue-700 bg-blue-50 text-blue-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
+                  <button type="button" key={opt.value} onClick={() => setForm({ ...form, role: opt.value })} className={`py-3 rounded-xl text-sm font-medium border-2 transition ${form.role === opt.value ? 'border-teal-700 bg-teal-50 text-teal-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
                     {opt.label}
                   </button>
                 ))}
               </div>
             </div>
 
-            <button type="submit" disabled={loading} className="w-full py-3 bg-gradient-to-r from-blue-700 to-blue-500 text-white font-semibold rounded-xl hover:from-blue-800 hover:to-blue-600 transition shadow-lg disabled:opacity-50">
+            <button type="submit" disabled={loading} className="w-full py-3 bg-gradient-to-r from-teal-700 to-teal-500 text-white font-semibold rounded-xl hover:from-teal-800 hover:to-teal-600 transition shadow-lg disabled:opacity-50">
               {loading ? 'Creating Account...' : 'Create Account'}
             </button>
           </form>
 
           <p className="text-center text-sm text-gray-500 mt-6">
             Already have an account?{' '}
-            <Link to="/login" className="text-blue-700 font-semibold hover:underline">Login</Link>
+            <Link to="/login" className="text-teal-700 font-semibold hover:underline">Login</Link>
           </p>
         </div>
       </div>
