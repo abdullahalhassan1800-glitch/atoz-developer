@@ -15,35 +15,37 @@ export default function SearchBar() {
     navigate(`/properties?${p}`);
   };
 
+  const selectClass = "w-full px-4 py-3 glass rounded-xl text-white text-sm font-light outline-none focus:border-accent/50 transition-all appearance-none cursor-pointer bg-transparent";
+
   return (
-    <form onSubmit={go} className="bg-charcoal/60 backdrop-blur-md border border-white/10 p-6 sm:p-8 max-w-4xl mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+    <form onSubmit={go} className="glass-strong rounded-2xl p-5 sm:p-6 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
         <div className="lg:col-span-2 relative">
-          <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gold/60 text-xs" />
+          <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30 text-xs" />
           <input
             type="text"
             name="search"
             value={f.search}
             onChange={set}
             placeholder="Search city, area..."
-            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 text-white text-sm font-light placeholder:text-white/30 outline-none focus:border-gold/50 transition-all duration-300"
+            className="w-full pl-10 pr-4 py-3 glass rounded-xl text-white text-sm font-light placeholder:text-white/30 outline-none focus:border-accent/50 transition-all"
           />
         </div>
-        <select name="type" value={f.type} onChange={set} className="py-3 px-4 bg-white/5 border border-white/10 text-white/70 text-sm font-light outline-none focus:border-gold/50 transition-all appearance-none cursor-pointer">
-          <option value="" className="bg-charcoal">Buy / Rent</option>
-          <option value="sale" className="bg-charcoal">For Sale</option>
-          <option value="rent" className="bg-charcoal">For Rent</option>
+        <select name="type" value={f.type} onChange={set} className={selectClass}>
+          <option value="" className="bg-deep">Buy / Rent</option>
+          <option value="sale" className="bg-deep">For Sale</option>
+          <option value="rent" className="bg-deep">For Rent</option>
         </select>
-        <select name="propertyType" value={f.propertyType} onChange={set} className="py-3 px-4 bg-white/5 border border-white/10 text-white/70 text-sm font-light outline-none focus:border-gold/50 transition-all appearance-none cursor-pointer">
-          <option value="" className="bg-charcoal">All Types</option>
-          <option value="house" className="bg-charcoal">House</option>
-          <option value="apartment" className="bg-charcoal">Apartment</option>
-          <option value="villa" className="bg-charcoal">Villa</option>
-          <option value="plot" className="bg-charcoal">Plot</option>
-          <option value="commercial" className="bg-charcoal">Commercial</option>
+        <select name="propertyType" value={f.propertyType} onChange={set} className={selectClass}>
+          <option value="" className="bg-deep">All Types</option>
+          <option value="house" className="bg-deep">House</option>
+          <option value="apartment" className="bg-deep">Apartment</option>
+          <option value="villa" className="bg-deep">Villa</option>
+          <option value="plot" className="bg-deep">Plot</option>
+          <option value="commercial" className="bg-deep">Commercial</option>
         </select>
-        <button type="submit" className="py-3 bg-gold text-charcoal text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-300 flex items-center justify-center gap-2">
-          <FaSearch className="text-[10px]" /> Search
+        <button type="submit" className="py-3 gradient-accent text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 flex items-center justify-center gap-2">
+          <FaSearch className="text-xs" /> Search
         </button>
       </div>
     </form>

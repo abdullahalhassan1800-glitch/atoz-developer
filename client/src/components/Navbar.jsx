@@ -18,7 +18,7 @@ export default function Navbar() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -28,15 +28,15 @@ export default function Navbar() {
   const active = (p) => pathname === p;
 
   return (
-    <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? 'bg-charcoal/95 backdrop-blur-md shadow-2xl shadow-black/20' : 'bg-charcoal'}`}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 border border-gold/60 flex items-center justify-center">
-            <span className="text-gold font-bold text-xs tracking-[0.2em]">AZ</span>
+    <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? 'glass-strong shadow-lg shadow-black/20' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-18 px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center gap-2.5">
+          <div className="w-9 h-9 gradient-accent rounded-xl flex items-center justify-center shadow-lg shadow-accent/20">
+            <span className="text-white font-bold text-xs tracking-tight">AZ</span>
           </div>
           <div className="leading-none">
-            <span className="text-[15px] font-light text-white tracking-[0.15em] block" style={{ fontFamily: "'Playfair Display', serif" }}>A TO Z</span>
-            <span className="block text-[8px] font-light text-gold tracking-[0.3em] mt-0.5">DEVELOPER</span>
+            <span className="text-[15px] font-bold text-white tracking-tight">A TO Z</span>
+            <span className="block text-[8px] font-semibold text-accent tracking-[0.2em] -mt-0.5">DEVELOPER</span>
           </div>
         </Link>
 
@@ -45,10 +45,10 @@ export default function Navbar() {
             <Link
               key={l.path}
               to={l.path}
-              className={`px-4 py-2 text-xs font-light tracking-[0.1em] uppercase transition-all duration-300 ${
+              className={`px-4 py-2 text-[13px] font-medium rounded-xl transition-all duration-300 ${
                 active(l.path)
-                  ? 'text-gold'
-                  : 'text-white/60 hover:text-white'
+                  ? 'text-accent bg-accent/10'
+                  : 'text-white/60 hover:text-white hover:bg-white/5'
               }`}
             >
               {l.name}
@@ -56,55 +56,55 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           {user ? (
-            <div className="flex items-center gap-4">
-              <div className="w-8 h-8 border border-gold/40 flex items-center justify-center">
-                <span className="text-gold text-xs font-medium">{user.name?.charAt(0)}</span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 gradient-accent rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-accent/20">
+                {user.name?.charAt(0)}
               </div>
-              <span className="text-xs font-light text-white/80 tracking-wider uppercase">{user.name}</span>
-              <button onClick={logout} className="text-xs font-light text-white/40 hover:text-gold transition-colors tracking-wider uppercase">
+              <span className="text-[13px] font-medium text-white/80">{user.name}</span>
+              <button onClick={logout} className="text-[13px] font-medium text-white/40 hover:text-red-400 transition-colors px-3 py-1.5 rounded-xl hover:bg-red-500/10">
                 Logout
               </button>
             </div>
           ) : (
             <>
-              <Link to="/login" className="text-xs font-light text-white/60 hover:text-white tracking-[0.1em] uppercase transition-colors">
+              <Link to="/login" className="px-4 py-2 text-[13px] font-medium text-white/60 hover:text-white rounded-xl hover:bg-white/5 transition-all">
                 Log in
               </Link>
-              <Link to="/register" className="px-5 py-2 text-xs font-light text-charcoal bg-gold hover:bg-gold-light tracking-[0.15em] uppercase transition-all duration-300">
+              <Link to="/register" className="px-5 py-2 text-[13px] font-semibold text-white gradient-accent rounded-xl shadow-lg shadow-accent/20 hover:shadow-accent/30 transition-all">
                 Sign up
               </Link>
             </>
           )}
         </div>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-white/60 hover:text-gold transition-colors">
-          {open ? <HiX size={24} /> : <HiMenu size={24} />}
+        <button onClick={() => setOpen(!open)} className="md:hidden p-2 rounded-xl text-white/60 hover:bg-white/10 transition-all">
+          {open ? <HiX size={22} /> : <HiMenu size={22} />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-charcoal border-t border-white/10">
-          <div className="px-4 py-4 space-y-1">
+        <div className="md:hidden glass-strong border-t border-white/10">
+          <div className="px-4 py-3 space-y-1">
             {navLinks.map((l) => (
               <Link
                 key={l.path}
                 to={l.path}
-                className={`block px-4 py-3 text-xs font-light tracking-[0.15em] uppercase transition-colors ${
-                  active(l.path) ? 'text-gold' : 'text-white/60 hover:text-white'
+                className={`block px-4 py-3 rounded-xl text-[13px] font-medium transition-all ${
+                  active(l.path) ? 'text-accent bg-accent/10' : 'text-white/60 hover:bg-white/5'
                 }`}
               >
                 {l.name}
               </Link>
             ))}
-            <div className="border-t border-white/10 mt-3 pt-3 flex gap-2">
+            <div className="border-t border-white/10 mt-2 pt-2 flex gap-2">
               {user ? (
-                <button onClick={logout} className="flex-1 py-3 text-xs font-light text-gold border border-gold/30 tracking-[0.15em] uppercase hover:bg-gold hover:text-charcoal transition-all">Logout</button>
+                <button onClick={logout} className="flex-1 py-3 text-[13px] font-medium text-red-400 bg-red-500/10 rounded-xl">Logout</button>
               ) : (
                 <>
-                  <Link to="/login" className="flex-1 text-center py-3 text-xs font-light text-white/60 border border-white/10 tracking-[0.15em] uppercase hover:border-gold/40 hover:text-gold transition-all">Log in</Link>
-                  <Link to="/register" className="flex-1 text-center py-3 text-xs font-light text-charcoal bg-gold tracking-[0.15em] uppercase hover:bg-gold-light transition-all">Sign up</Link>
+                  <Link to="/login" className="flex-1 text-center py-3 text-[13px] font-medium text-white/60 glass rounded-xl">Log in</Link>
+                  <Link to="/register" className="flex-1 text-center py-3 text-[13px] font-semibold text-white gradient-accent rounded-xl">Sign up</Link>
                 </>
               )}
             </div>

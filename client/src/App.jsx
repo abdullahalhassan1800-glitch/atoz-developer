@@ -12,13 +12,15 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 
 const NotFound = () => (
-  <div className="min-h-[60vh] flex items-center justify-center pt-20 bg-white">
-    <div className="text-center">
-      <span className="text-6xl font-light text-gold" style={{ fontFamily: "'Playfair Display', serif" }}>404</span>
-      <div className="w-8 h-px bg-gold/30 mx-auto my-6" />
-      <h2 className="text-xl font-normal text-charcoal mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Page Not Found</h2>
-      <p className="text-sm font-light text-black/40 mb-8">The page you're looking for doesn't exist.</p>
-      <Link to="/" className="inline-flex px-8 py-3 bg-gold text-charcoal text-xs font-medium tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-300">
+  <div className="min-h-[60vh] flex items-center justify-center relative pt-20">
+    <div className="absolute inset-0 bg-deep" />
+    <div className="absolute inset-0 bg-mesh" />
+    <div className="relative text-center">
+      <span className="text-6xl font-bold gradient-text">404</span>
+      <div className="w-10 h-1 gradient-accent rounded-full mx-auto my-5" />
+      <h2 className="text-xl font-bold text-white mb-2">Page Not Found</h2>
+      <p className="text-sm font-light text-white/40 mb-7">The page you're looking for doesn't exist.</p>
+      <Link to="/" className="inline-flex px-7 py-3 gradient-accent text-white text-sm font-semibold rounded-xl shadow-lg shadow-accent/20 hover:shadow-accent/30 transition-all">
         Go Home
       </Link>
     </div>
