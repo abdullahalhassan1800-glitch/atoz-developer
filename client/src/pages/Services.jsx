@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FaHome, FaTag, FaComments, FaCogs, FaChartLine, FaShieldAlt } from 'react-icons/fa';
 
 const Services = () => {
@@ -54,9 +55,9 @@ const Services = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h2>
           <p className="text-gray-500 mb-8">We understand every client is unique. Let us create a personalized plan for your real estate needs.</p>
-          <a href="/contact" className="inline-flex px-8 py-3 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition shadow-lg">
+          <Link to="/contact" className="inline-flex px-8 py-3 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition shadow-lg">
             Get in Touch
-          </a>
+          </Link>
         </div>
       </section>
     </div>

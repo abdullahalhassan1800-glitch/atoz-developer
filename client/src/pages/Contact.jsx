@@ -24,7 +24,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       <section className="bg-gradient-to-br from-blue-900 to-gray-900 py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-amber-400 font-semibold text-sm uppercase tracking-wider">Get in Touch</span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-3 mb-4">Contact Us</h1>
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
@@ -34,7 +34,7 @@ const Contact = () => {
       </section>
 
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Contact Info */}
             <div className="space-y-6">

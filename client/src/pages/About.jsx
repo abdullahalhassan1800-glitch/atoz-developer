@@ -12,7 +12,7 @@ const About = () => {
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-900 to-gray-900 py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-amber-400 font-semibold text-sm uppercase tracking-wider">About Us</span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-3 mb-4">Our Story</h1>
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
@@ -23,7 +23,7 @@ const About = () => {
 
       {/* Mission Vision */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="bg-white p-8 rounded-2xl shadow-md border-l-4 border-blue-700">
             <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
               <FaBullseye className="text-blue-700 text-2xl" />
@@ -47,7 +47,7 @@ const About = () => {
 
       {/* Stats */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
             { icon: FaAward, num: '15+', label: 'Years Experience' },
             { icon: FaHandshake, num: '2,500+', label: 'Happy Clients' },
@@ -65,7 +65,7 @@ const About = () => {
 
       {/* Team */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-amber-500 font-semibold text-sm uppercase tracking-wider">Our Team</span>
             <h2 className="text-3xl font-bold text-gray-900 mt-2">Meet the Experts</h2>
