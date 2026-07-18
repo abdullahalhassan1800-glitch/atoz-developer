@@ -13,9 +13,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 
 const pageVariants = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] } },
-  exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } },
+  exit: { opacity: 0, y: -12, transition: { duration: 0.25 } },
 };
 
 function AnimatedRoutes() {
@@ -47,8 +47,10 @@ function AnimatedRoutes() {
 }
 
 const NotFound = () => (
-  <div className="min-h-[60vh] flex items-center justify-center pt-20">
-    <div className="text-center">
+  <div className="min-h-[60vh] flex items-center justify-center relative pt-20">
+    <div className="absolute inset-0 bg-deep" />
+    <div className="absolute inset-0 bg-mesh" />
+    <div className="relative text-center">
       <motion.span
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -57,11 +59,11 @@ const NotFound = () => (
       >
         404
       </motion.span>
-      <div className="w-10 h-1 gradient-accent rounded-full mx-auto my-5" />
-      <h2 className="text-xl font-bold text-slate-800 mb-2">Page Not Found</h2>
-      <p className="text-sm text-slate-400 mb-7">The page you're looking for doesn't exist.</p>
+      <div className="w-10 h-1 gradient-accent rounded-full mx-auto my-5 animate-pulse-glow" />
+      <h2 className="text-xl font-bold text-white mb-2">Page Not Found</h2>
+      <p className="text-sm font-light text-white/40 mb-7">The page you're looking for doesn't exist.</p>
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-        <Link to="/" className="inline-flex px-7 py-3 gradient-accent text-white text-sm font-semibold rounded-xl shadow-medium hover:shadow-strong transition-shadow">
+        <Link to="/" className="inline-flex px-7 py-3 gradient-accent text-white text-sm font-semibold rounded-xl shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-shadow">
           Go Home
         </Link>
       </motion.div>
@@ -73,7 +75,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="flex flex-col min-h-screen bg-deep">
+        <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-1">
             <AnimatedRoutes />
