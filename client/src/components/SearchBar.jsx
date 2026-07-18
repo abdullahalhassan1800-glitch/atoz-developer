@@ -25,10 +25,10 @@ const SearchBar = () => {
     navigate(`/properties?${params.toString()}`);
   };
 
-  const selectClass = "w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none appearance-none cursor-pointer";
+  const selectClass = "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none appearance-none cursor-pointer";
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-4 sm:p-6 max-w-5xl mx-auto">
+    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 max-w-5xl mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <label className="text-xs font-medium text-gray-500 mb-1.5 block">Search</label>
@@ -40,7 +40,7 @@ const SearchBar = () => {
               value={filters.search}
               onChange={handleChange}
               placeholder="City, address, or keyword..."
-              className="w-full pl-10 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none"
+              className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none"
             />
           </div>
         </div>
@@ -97,7 +97,7 @@ const SearchBar = () => {
         </div>
 
         <div className="sm:col-span-2 lg:col-span-3 flex items-end">
-          <button type="submit" className="w-full py-3.5 bg-gradient-to-r from-teal-700 to-teal-500 text-white font-semibold rounded-xl hover:from-teal-800 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+          <button type="submit" className="w-full py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
             <FaSearch /> Search Properties
           </button>
         </div>

@@ -60,7 +60,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center p-4 rounded-2xl hover:bg-teal-50 transition-colors duration-300">
+              <div key={i} className="text-center p-4 rounded-2xl hover:bg-teal-50 transition-colors duration-300 cursor-pointer">
                 <div className="w-16 h-16 mx-auto mb-4 bg-teal-50 rounded-2xl flex items-center justify-center">
                   <stat.icon className="text-2xl text-teal-700" />
                 </div>
@@ -77,7 +77,7 @@ const Home = () => {
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="text-amber-500 font-semibold text-sm uppercase tracking-wider">Featured</span>
+              <span className="text-amber-400 font-semibold text-sm uppercase tracking-wider">Featured</span>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Featured Properties</h2>
               <p className="text-gray-500 mt-3 max-w-xl mx-auto">Handpicked premium properties for you</p>
             </div>
@@ -99,7 +99,7 @@ const Home = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-amber-500 font-semibold text-sm uppercase tracking-wider">Why Us</span>
+              <span className="text-amber-400 font-semibold text-sm uppercase tracking-wider">Why Us</span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Why Choose A TO Z Developer</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -134,7 +134,7 @@ const Home = () => {
                   ))}
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 bg-teal-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     {t.name.charAt(0)}
                   </div>
                   <div>

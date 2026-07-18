@@ -93,7 +93,7 @@ const Register = () => {
               </div>
             </div>
 
-            <button type="submit" disabled={loading} className="w-full py-3 bg-gradient-to-r from-teal-700 to-teal-500 text-white font-semibold rounded-xl hover:from-teal-800 hover:to-teal-600 transition shadow-lg disabled:opacity-50">
+            <button type="submit" disabled={loading} className="w-full py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition shadow-lg disabled:opacity-50">
               {loading ? 'Creating Account...' : 'Create Account'}
             </button>
           </form>

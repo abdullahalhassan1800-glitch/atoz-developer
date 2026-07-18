@@ -83,7 +83,7 @@ const Properties = () => {
 
             {showFilters && (
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4 pt-4 border-t border-gray-100">
-                <select name="propertyType" value={filters.propertyType} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none">
+                <select name="propertyType" value={filters.propertyType} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 outline-none">
                   <option value="">Property Type</option>
                   <option value="house">House</option>
                   <option value="apartment">Apartment</option>
@@ -91,7 +91,7 @@ const Properties = () => {
                   <option value="plot">Plot</option>
                   <option value="commercial">Commercial</option>
                 </select>
-                <select name="minPrice" value={filters.minPrice} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none">
+                <select name="minPrice" value={filters.minPrice} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 outline-none">
                   <option value="">Min Price</option>
                   <option value="500000">₹5 Lakh</option>
                   <option value="1000000">₹10 Lakh</option>
@@ -99,14 +99,14 @@ const Properties = () => {
                   <option value="5000000">₹50 Lakh</option>
                   <option value="10000000">₹1 Crore</option>
                 </select>
-                <select name="maxPrice" value={filters.maxPrice} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none">
+                <select name="maxPrice" value={filters.maxPrice} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 outline-none">
                   <option value="">Max Price</option>
                   <option value="2500000">₹25 Lakh</option>
                   <option value="5000000">₹50 Lakh</option>
                   <option value="10000000">₹1 Crore</option>
                   <option value="50000000">₹5 Crore</option>
                 </select>
-                <select name="sort" value={filters.sort} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none">
+                <select name="sort" value={filters.sort} onChange={handleChange} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 outline-none">
                   <option value="-createdAt">Newest First</option>
                   <option value="price">Price: Low to High</option>
                   <option value="-price">Price: High to Low</option>

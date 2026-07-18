@@ -23,7 +23,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       <section className="bg-gradient-to-br from-teal-900 to-gray-900 py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-amber-400 font-semibold text-sm uppercase tracking-wider">What We Do</span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-3 mb-4">Our Services</h1>
           <p className="text-gray-300 max-w-2xl mx-auto text-lg">
@@ -33,7 +33,7 @@ const Services = () => {
       </section>
 
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, i) => {
               const c = colorMap[service.color];
@@ -52,8 +52,8 @@ const Services = () => {
       </section>
 
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h2>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Need a Custom Solution?</h2>
           <p className="text-gray-500 mb-8">We understand every client is unique. Let us create a personalized plan for your real estate needs.</p>
           <Link to="/contact" className="inline-flex px-8 py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition shadow-lg">
             Get in Touch

@@ -9,7 +9,7 @@ const PropertyCard = ({ property }) => {
   };
 
   return (
-    <Link to={`/property/${property._id}`} className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
+    <Link to={`/property/${property._id}`} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
       <div className="relative h-56 overflow-hidden">
         <img
           src={property.images?.[0] || 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600'}

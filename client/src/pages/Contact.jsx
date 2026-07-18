@@ -64,7 +64,7 @@ const Contact = () => {
                 <h3 className="text-sm font-bold text-gray-900 mb-3">Follow Us</h3>
                 <div className="flex gap-3">
                   {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map((Icon, i) => (
-                    <a key={i} href="#" className="w-10 h-10 bg-gray-100 hover:bg-teal-700 hover:text-white rounded-xl flex items-center justify-center text-gray-500 transition">
+                    <a key={i} href="#" className="w-10 h-10 bg-gray-100 hover:bg-teal-700 hover:text-white rounded-full flex items-center justify-center text-gray-500 transition">
                       <Icon />
                     </a>
                   ))}
@@ -96,7 +96,7 @@ const Contact = () => {
                       <input type="text" placeholder="Subject *" required value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500" />
                     </div>
                     <textarea placeholder="Your Message *" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-teal-500 resize-none"></textarea>
-                    <button type="submit" disabled={loading} className="px-8 py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition shadow-lg disabled:opacity-50">
+                    <button type="submit" disabled={loading} className="px-8 py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition shadow-lg hover:shadow-xl disabled:opacity-50">
                       {loading ? 'Sending...' : 'Send Message'}
                     </button>
                   </form>

@@ -68,7 +68,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-amber-500 font-semibold text-sm uppercase tracking-wider">Our Team</span>
-            <h2 className="text-3xl font-bold text-gray-900 mt-2">Meet the Experts</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Meet the Experts</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, i) => (

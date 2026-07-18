@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-10 h-10 bg-gradient-to-br from-teal-700 to-teal-500 rounded-lg flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 bg-gradient-to-br from-teal-700 to-teal-500 rounded-xl flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-lg">AZ</span>
             </div>
             <div className="leading-none">
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <Link to="/login" className="px-4 py-2 text-sm font-medium text-teal-700 hover:bg-teal-50 rounded-lg transition">
                   Login
                 </Link>
-                <Link to="/register" className="px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-700 to-teal-500 rounded-lg hover:from-teal-800 hover:to-teal-600 transition shadow-md hover:shadow-lg">
+                <Link to="/register" className="px-5 py-2 text-sm font-medium text-white bg-teal-700 rounded-xl hover:bg-teal-800 transition shadow-md hover:shadow-lg">
                   Register
                 </Link>
               </>
