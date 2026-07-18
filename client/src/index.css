@@ -94,4 +94,67 @@
   .glow {
     box-shadow: 0 0 40px rgba(6, 214, 160, 0.15), 0 0 80px rgba(102, 126, 234, 0.1);
   }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  .animate-orbit {
+    animation: orbit 20s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(6, 214, 160, 0.5), 0 0 40px rgba(6, 214, 160, 0.2);
+  }
+
+  .border-glow {
+    box-shadow: 0 0 15px rgba(6, 214, 160, 0.15), inset 0 0 15px rgba(6, 214, 160, 0.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(6, 214, 160, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(6, 214, 160, 0.3), 0 0 60px rgba(6, 214, 160, 0.1); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
 }

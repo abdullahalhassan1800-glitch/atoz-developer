@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -84,33 +85,47 @@ export default function Navbar() {
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden glass-strong border-t border-white/10">
-          <div className="px-4 py-3 space-y-1">
-            {navLinks.map((l) => (
-              <Link
-                key={l.path}
-                to={l.path}
-                className={`block px-4 py-3 rounded-xl text-[13px] font-medium transition-all ${
-                  active(l.path) ? 'text-accent bg-accent/10' : 'text-white/60 hover:bg-white/5'
-                }`}
-              >
-                {l.name}
-              </Link>
-            ))}
-            <div className="border-t border-white/10 mt-2 pt-2 flex gap-2">
-              {user ? (
-                <button onClick={logout} className="flex-1 py-3 text-[13px] font-medium text-red-400 bg-red-500/10 rounded-xl">Logout</button>
-              ) : (
-                <>
-                  <Link to="/login" className="flex-1 text-center py-3 text-[13px] font-medium text-white/60 glass rounded-xl">Log in</Link>
-                  <Link to="/register" className="flex-1 text-center py-3 text-[13px] font-semibold text-white gradient-accent rounded-xl">Sign up</Link>
-                </>
-              )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="md:hidden glass-strong border-t border-white/10 overflow-hidden"
+          >
+            <div className="px-4 py-3 space-y-1">
+              {navLinks.map((l, i) => (
+                <motion.div
+                  key={l.path}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  <Link
+                    to={l.path}
+                    className={`block px-4 py-3 rounded-xl text-[13px] font-medium transition-all ${
+                      active(l.path) ? 'text-accent bg-accent/10' : 'text-white/60 hover:bg-white/5'
+                    }`}
+                  >
+                    {l.name}
+                  </Link>
+                </motion.div>
+              ))}
+              <div className="border-t border-white/10 mt-2 pt-2 flex gap-2">
+                {user ? (
+                  <button onClick={logout} className="flex-1 py-3 text-[13px] font-medium text-red-400 bg-red-500/10 rounded-xl">Logout</button>
+                ) : (
+                  <>
+                    <Link to="/login" className="flex-1 text-center py-3 text-[13px] font-medium text-white/60 glass rounded-xl">Log in</Link>
+                    <Link to="/register" className="flex-1 text-center py-3 text-[13px] font-semibold text-white gradient-accent rounded-xl">Sign up</Link>
+                  </>
+                )}
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

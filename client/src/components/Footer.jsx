@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Footer() {
@@ -22,9 +23,14 @@ export default function Footer() {
             </p>
             <div className="flex gap-2 mt-5">
               {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 glass rounded-xl flex items-center justify-center text-white/30 hover:text-accent hover:border-accent/30 transition-all duration-300">
+                <motion.a
+                  key={i}
+                  href="#"
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  className="w-9 h-9 glass rounded-xl flex items-center justify-center text-white/30 hover:text-accent hover:border-accent/30 transition-colors duration-300"
+                >
                   <Icon size={12} />
-                </a>
+                </motion.a>
               ))}
             </div>
           </div>
