@@ -2,108 +2,52 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 
-const SearchBar = () => {
+export default function SearchBar() {
   const navigate = useNavigate();
-  const [filters, setFilters] = useState({
-    search: '',
-    type: '',
-    propertyType: '',
-    minPrice: '',
-    maxPrice: '',
-  });
+  const [f, setF] = useState({ search: '', type: '', propertyType: '', minPrice: '', maxPrice: '' });
 
-  const handleChange = (e) => {
-    setFilters({ ...filters, [e.target.name]: e.target.value });
-  };
+  const set = (e) => setF({ ...f, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const go = (e) => {
     e.preventDefault();
-    const params = new URLSearchParams();
-    Object.entries(filters).forEach(([key, value]) => {
-      if (value) params.set(key, value);
-    });
-    navigate(`/properties?${params.toString()}`);
+    const p = new URLSearchParams();
+    Object.entries(f).forEach(([k, v]) => { if (v) p.set(k, v); });
+    navigate(`/properties?${p}`);
   };
 
-  const selectClass = "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none appearance-none cursor-pointer";
+  const sel = "w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all";
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        <div className="sm:col-span-2 lg:col-span-1">
-          <label className="text-xs font-medium text-gray-500 mb-1.5 block">Search</label>
-          <div className="relative">
-            <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
-            <input
-              type="text"
-              name="search"
-              value={filters.search}
-              onChange={handleChange}
-              placeholder="City, address, or keyword..."
-              className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none"
-            />
-          </div>
+    <form onSubmit={go} className="bg-white rounded-2xl shadow-xl shadow-black/10 p-4 sm:p-5 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div className="lg:col-span-2 relative">
+          <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
+          <input
+            type="text"
+            name="search"
+            value={f.search}
+            onChange={set}
+            placeholder="Search city, area..."
+            className="w-full pl-9 pr-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 placeholder:text-gray-400 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all"
+          />
         </div>
-
-        <div>
-          <label className="text-xs font-medium text-gray-500 mb-1.5 block">Type</label>
-          <select name="type" value={filters.type} onChange={handleChange} className={selectClass}>
-            <option value="">All</option>
-            <option value="sale">For Sale</option>
-            <option value="rent">For Rent</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="text-xs font-medium text-gray-500 mb-1.5 block">Property</label>
-          <select name="propertyType" value={filters.propertyType} onChange={handleChange} className={selectClass}>
-            <option value="">All Types</option>
-            <option value="house">House</option>
-            <option value="apartment">Apartment</option>
-            <option value="villa">Villa</option>
-            <option value="plot">Plot</option>
-            <option value="commercial">Commercial</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="text-xs font-medium text-gray-500 mb-1.5 block">Min Price</label>
-          <select name="minPrice" value={filters.minPrice} onChange={handleChange} className={selectClass}>
-            <option value="">No Min</option>
-            <option value="500000">₹5 Lakh</option>
-            <option value="1000000">₹10 Lakh</option>
-            <option value="2500000">₹25 Lakh</option>
-            <option value="5000000">₹50 Lakh</option>
-            <option value="10000000">₹1 Crore</option>
-            <option value="25000000">₹2.5 Crore</option>
-            <option value="50000000">₹5 Crore</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-3 sm:mt-4">
-        <div>
-          <label className="text-xs font-medium text-gray-500 mb-1.5 block">Max Price</label>
-          <select name="maxPrice" value={filters.maxPrice} onChange={handleChange} className={selectClass}>
-            <option value="">No Max</option>
-            <option value="1000000">₹10 Lakh</option>
-            <option value="2500000">₹25 Lakh</option>
-            <option value="5000000">₹50 Lakh</option>
-            <option value="10000000">₹1 Crore</option>
-            <option value="25000000">₹2.5 Crore</option>
-            <option value="50000000">₹5 Crore</option>
-            <option value="100000000">₹10 Crore</option>
-          </select>
-        </div>
-
-        <div className="sm:col-span-2 lg:col-span-3 flex items-end">
-          <button type="submit" className="w-full py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-            <FaSearch /> Search Properties
-          </button>
-        </div>
+        <select name="type" value={f.type} onChange={set} className={sel}>
+          <option value="">Buy / Rent</option>
+          <option value="sale">For Sale</option>
+          <option value="rent">For Rent</option>
+        </select>
+        <select name="propertyType" value={f.propertyType} onChange={set} className={sel}>
+          <option value="">All Types</option>
+          <option value="house">House</option>
+          <option value="apartment">Apartment</option>
+          <option value="villa">Villa</option>
+          <option value="plot">Plot</option>
+          <option value="commercial">Commercial</option>
+        </select>
+        <button type="submit" className="py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors shadow-sm">
+          Search
+        </button>
       </div>
     </form>
   );
-};
-
-export default SearchBar;
+}
