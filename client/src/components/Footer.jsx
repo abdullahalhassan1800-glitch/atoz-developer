@@ -61,7 +61,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <FaMapMarkerAlt className="text-amber-400 mt-1 flex-shrink-0" />
-                <span>123 Business Avenue, Mumbai, Maharashtra 400001</span>
+                <span>123 Business Avenue, Andheri West, Mumbai 400058</span>
               </li>
               <li className="flex items-center gap-3">
                 <FaPhoneAlt className="text-amber-400 flex-shrink-0" />
@@ -78,7 +78,7 @@ const Footer = () => {
 
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row justify-between items-center gap-2">
-          <p className="text-sm text-gray-500">&copy; 2026 A TO Z Developer. All rights reserved.</p>
+          <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} A TO Z Developer. All rights reserved.</p>
           <p className="text-sm text-gray-500">Designed with passion for your dream home</p>
         </div>
       </div>

@@ -14,9 +14,33 @@ const isOffline = !window.location.hostname.includes('localhost') && !window.loc
 const delay = (ms) => new Promise(r => setTimeout(r, ms));
 
 export const authAPI = {
-  register: (data) => API.post('/auth/register', data),
-  login: (data) => API.post('/auth/login', data),
-  getMe: () => API.get('/auth/me'),
+  register: async (data) => {
+    if (isOffline) {
+      await delay(500);
+      const token = 'demo-token-' + Date.now();
+      const user = { _id: 'demo-user', name: data.name, email: data.email, role: data.role || 'buyer' };
+      localStorage.setItem('token', token);
+      return { data: { token, user } };
+    }
+    return API.post('/auth/register', data);
+  },
+  login: async (data) => {
+    if (isOffline) {
+      await delay(500);
+      const token = 'demo-token-' + Date.now();
+      const user = { _id: 'demo-user', name: 'Demo User', email: data.email, role: 'buyer' };
+      localStorage.setItem('token', token);
+      return { data: { token, user } };
+    }
+    return API.post('/auth/login', data);
+  },
+  getMe: async () => {
+    if (isOffline) {
+      await delay(300);
+      return { data: { _id: 'demo-user', name: 'Demo User', email: 'demo@atoz.com', role: 'buyer' } };
+    }
+    return API.get('/auth/me');
+  },
 };
 
 export const propertyAPI = {

@@ -71,8 +71,8 @@ const PropertyDetail = () => {
                   <span className={`px-4 py-2 text-sm font-semibold rounded-full shadow-md ${property.type === 'sale' ? 'bg-teal-700 text-white' : 'bg-amber-500 text-white'}`}>
                     For {property.type === 'sale' ? 'Sale' : 'Rent'}
                   </span>
-                  <span className={`px-4 py-2 text-sm font-semibold rounded-full capitalize shadow-md ${property.status === 'available' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
-                    {property.status}
+                  <span className={`px-4 py-2 text-sm font-semibold rounded-full shadow-md ${property.status === 'available' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
+                    {property.status?.charAt(0).toUpperCase() + property.status?.slice(1)}
                   </span>
                 </div>
               </div>
@@ -101,11 +101,11 @@ const PropertyDetail = () => {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 my-6 p-4 bg-gray-50 rounded-xl">
                 {[
-                  { icon: FaBed, value: property.beds, label: 'Beds' },
-                  { icon: FaBath, value: property.baths, label: 'Baths' },
+                  { icon: FaBed, value: property.beds, label: 'Beds', hide: property.beds === 0 },
+                  { icon: FaBath, value: property.baths, label: 'Baths', hide: property.baths === 0 },
                   { icon: FaRulerCombined, value: property.area, label: 'Sq Ft' },
                   { icon: FaBuilding, value: property.propertyType, label: 'Type', capitalize: true },
-                ].map((item, i) => (
+                ].filter(item => !item.hide).map((item, i) => (
                   <div key={i} className="text-center p-2">
                     <item.icon className="text-teal-700 text-lg sm:text-xl mx-auto mb-1" />
                     <span className="text-sm font-semibold text-gray-900 block capitalize">{item.value}</span>

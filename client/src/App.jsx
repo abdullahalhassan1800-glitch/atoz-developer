@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -10,6 +10,19 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
+
+const NotFound = () => (
+  <div className="min-h-[60vh] flex items-center justify-center">
+    <div className="text-center">
+      <h1 className="text-6xl font-bold text-teal-700 mb-4">404</h1>
+      <h2 className="text-2xl font-bold text-gray-900 mb-2">Page Not Found</h2>
+      <p className="text-gray-500 mb-6">The page you're looking for doesn't exist.</p>
+      <Link to="/" className="inline-flex px-6 py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-800 transition">
+        Go Home
+      </Link>
+    </div>
+  </div>
+);
 
 function App() {
   return (
@@ -27,6 +40,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
