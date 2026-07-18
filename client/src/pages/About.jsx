@@ -10,22 +10,19 @@ const team = [
 
 export default function About() {
   return (
-    <div className="min-h-screen relative">
-      <div className="absolute inset-0 bg-deep" />
-      <div className="absolute inset-0 bg-mesh opacity-30" />
-
+    <div className="min-h-screen bg-deep">
       {/* Hero */}
-      <section className="relative pt-24 pb-16">
+      <section className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeIn>
             <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase">About Us</span>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mt-4 mb-4">Our Story</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold text-slate-800 mt-4 mb-4">Our Story</h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="w-12 h-1 gradient-accent rounded-full mx-auto mb-6" />
-            <p className="text-white/40 max-w-2xl mx-auto text-sm font-light leading-relaxed">
+            <p className="text-slate-400 max-w-2xl mx-auto text-sm font-light leading-relaxed">
               Building trust in real estate since 2010. A TO Z Developer is your complete real estate solution partner.
             </p>
           </FadeIn>
@@ -33,26 +30,26 @@ export default function About() {
       </section>
 
       {/* Mission Vision */}
-      <section className="relative py-16">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           <FadeInLeft delay={0.1}>
-            <div className="glass-card rounded-2xl p-8 hover:border-accent/20 transition-all duration-500 h-full">
-              <div className="w-12 h-10 gradient-accent rounded-xl flex items-center justify-center mb-5 shadow-lg shadow-accent/20">
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-soft hover:shadow-medium transition-all duration-500 h-full">
+              <div className="w-12 h-10 gradient-accent rounded-xl flex items-center justify-center mb-5 shadow-medium">
                 <FaAward className="text-white" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-3">Our Mission</h3>
-              <p className="text-sm font-light text-white/40 leading-relaxed">
+              <h3 className="text-lg font-bold text-slate-800 mb-3">Our Mission</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
                 To provide transparent, reliable, and personalized real estate services that help our clients make informed decisions and find properties they truly love.
               </p>
             </div>
           </FadeInLeft>
           <FadeInRight delay={0.2}>
-            <div className="glass-card rounded-2xl p-8 hover:border-accent/20 transition-all duration-500 h-full">
-              <div className="w-12 h-10 gradient-warm rounded-xl flex items-center justify-center mb-5 shadow-lg shadow-pink-500/20">
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-soft hover:shadow-medium transition-all duration-500 h-full">
+              <div className="w-12 h-10 gradient-warm rounded-xl flex items-center justify-center mb-5 shadow-medium">
                 <FaHeart className="text-white" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-3">Our Vision</h3>
-              <p className="text-sm font-light text-white/40 leading-relaxed">
+              <h3 className="text-lg font-bold text-slate-800 mb-3">Our Vision</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
                 To become India's most trusted and innovative real estate brand, making property transactions simple, accessible, and rewarding for everyone.
               </p>
             </div>
@@ -61,7 +58,7 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="relative py-16">
+      <section className="py-16 bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <StaggerContainer>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -72,10 +69,10 @@ export default function About() {
                 { icon: FaHeart, num: '5,000+', label: 'Properties Sold' },
               ].map((s, i) => (
                 <StaggerItem key={i}>
-                  <div className="glass rounded-2xl p-6 hover:border-accent/20 transition-all duration-300">
+                  <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-sky-200 transition-all duration-300">
                     <s.icon className="text-accent text-xl mx-auto mb-3" />
-                    <h3 className="text-2xl font-bold text-white mb-1">{s.num}</h3>
-                    <p className="text-xs font-light text-white/30 tracking-wider uppercase">{s.label}</p>
+                    <h3 className="text-2xl font-bold text-slate-800 mb-1">{s.num}</h3>
+                    <p className="text-xs text-slate-400 tracking-wider uppercase">{s.label}</p>
                   </div>
                 </StaggerItem>
               ))}
@@ -85,30 +82,30 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="relative py-16">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <FadeIn>
               <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase">Our Team</span>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mt-3">Meet the Experts</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mt-3">Meet the Experts</h2>
             </FadeIn>
           </div>
           <StaggerContainer>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {team.map((m, i) => (
                 <StaggerItem key={i}>
-                  <div className="glass-card rounded-2xl overflow-hidden hover:border-accent/20 transition-all duration-500 group">
+                  <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-soft hover:shadow-medium transition-all duration-500 group">
                     <div className="h-56 overflow-hidden">
                       <img src={m.img} alt={m.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     </div>
                     <div className="p-5 text-center">
-                      <h3 className="font-semibold text-white text-sm">{m.name}</h3>
-                      <p className="text-xs font-light text-accent mt-1">{m.role}</p>
+                      <h3 className="font-semibold text-slate-800 text-sm">{m.name}</h3>
+                      <p className="text-xs text-accent mt-1">{m.role}</p>
                       <div className="flex justify-center gap-2 mt-3">
                         {[FaLinkedinIn, FaTwitter, FaEnvelope].map((Icon, j) => (
-                          <a key={j} href="#" className="w-7 h-7 glass rounded-lg flex items-center justify-center text-white/30 hover:text-accent hover:border-accent/30 transition-all duration-300">
+                          <a key={j} href="#" className="w-7 h-7 bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 hover:text-accent hover:bg-sky-50 transition-all duration-300">
                             <Icon size={10} />
                           </a>
                         ))}
