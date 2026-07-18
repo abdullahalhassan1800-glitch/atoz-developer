@@ -152,7 +152,7 @@ const PropertyDetail = () => {
               <div className="bg-white rounded-2xl p-6 shadow-md">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Listed By</h3>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-teal-600 to-teal-400 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
+                  <div className="w-14 h-14 bg-gradient-to-br from-teal-700 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
                     {property.agent.name?.charAt(0)}
                   </div>
                   <div>
