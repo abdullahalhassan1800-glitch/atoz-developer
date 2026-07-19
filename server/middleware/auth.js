@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const db = require('../config/db');
+const User = require('../models/User');
 
 const auth = async (req, res, next) => {
   try {
@@ -7,11 +7,10 @@ const auth = async (req, res, next) => {
     if (!token) return res.status(401).json({ message: 'No token, authorization denied' });
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await db.findOne({ _id: decoded.id });
+    const user = await User.findById(decoded.id).select('-password');
     if (!user) return res.status(401).json({ message: 'Token is not valid' });
 
-    const { password, ...userData } = user;
-    req.user = userData;
+    req.user = user.toObject();
     next();
   } catch (error) {
     res.status(401).json({ message: 'Token is not valid' });
@@ -25,4 +24,11 @@ const agentOnly = (req, res, next) => {
   next();
 };
 
-module.exports = { auth, agentOnly };
+const adminOnly = (req, res, next) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ message: 'Access denied. Admin only.' });
+  }
+  next();
+};
+
+module.exports = { auth, agentOnly, adminOnly };

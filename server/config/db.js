@@ -1,9 +1,8 @@
-const Datastore = require('nedb-promises');
-const path = require('path');
+const mongoose = require('mongoose');
 
-const db = Datastore.create({
-  filename: path.join(__dirname, '..', 'data', 'users.db'),
-  autoload: true,
-});
+const connectDB = async () => {
+  const conn = await mongoose.connect(process.env.MONGODB_URI);
+  console.log(`MongoDB connected: ${conn.connection.host}`);
+};
 
-module.exports = db;
+module.exports = connectDB;
