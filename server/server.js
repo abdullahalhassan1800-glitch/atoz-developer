@@ -24,6 +24,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/properties', require('./routes/propertyRoutes'));
 app.use('/api/projects', require('./routes/projectRoutes'));
 app.use('/api/contacts', require('./routes/contactRoutes'));
+app.use('/api/gallery', require('./routes/galleryRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
