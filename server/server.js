@@ -13,6 +13,7 @@ app.use(cors({
     'http://localhost:5173',
     'http://localhost:3000',
     'https://abdullahalhassan1800-glitch.github.io',
+    'https://atozdevlopers.in',
   ],
   credentials: true,
 }));
