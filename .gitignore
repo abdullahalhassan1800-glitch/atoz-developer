@@ -1,6 +1,7 @@
 node_modules/
 server/data/
 server/uploads/
+!server/uploads/gallery
 client/dist/
 .env
 *.log
